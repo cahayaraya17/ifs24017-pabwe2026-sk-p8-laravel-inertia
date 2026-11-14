@@ -1,10 +1,12 @@
 <?php
 
+use App\Features\Admin\Controllers\AdminPostController;
+use App\Features\Admin\Controllers\AdminUserController;
 use App\Features\Auth\Controllers\AuthController;
 use App\Features\Post\Controllers\PostController;
 use App\Features\Post\Controllers\PublicPostController;
+use App\Features\Profile\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
 
 /*
 |--------------------------------------------------------------------------
-| Tahap 5: Dashboard Penulis (CRUD, Toggle Publikasi, Cover, Statistik)
+| Tahap 5-7: Dashboard Penulis (CRUD, Excel, AI)
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:member,admin'])
@@ -43,13 +45,11 @@ Route::middleware(['auth', 'role:member,admin'])
         Route::get('/', [PostController::class, 'index'])->name('index');
         Route::post('/', [PostController::class, 'store'])->name('store');
 
-        // Rute khusus (Excel & AI - aktif penuh di Tahap 6 & 7)
         Route::get('/export', [PostController::class, 'export'])->name('export');
         Route::post('/import', [PostController::class, 'import'])->name('import');
         Route::post('/ai-generate', [PostController::class, 'aiGenerate'])->name('ai.generate');
         Route::post('/ai-save', [PostController::class, 'aiSave'])->name('ai.save');
 
-        // Rute dengan validasi kepemilikan artikel (post.owner)
         Route::middleware('post.owner')->group(function () {
             Route::get('/{post}', [PostController::class, 'show'])->name('show');
             Route::put('/{post}', [PostController::class, 'update'])->name('update');
@@ -61,9 +61,28 @@ Route::middleware(['auth', 'role:member,admin'])
     });
 
 /*
-| SEMENTARA (Tahap 3): halaman penampung agar redirect admin setelah login tidak 404.
-| /admin/users diganti AdminUserController di Tahap 8.
+|--------------------------------------------------------------------------
+| Tahap 8: Profil
+|--------------------------------------------------------------------------
 */
-Route::get('/admin/users', fn () => Inertia::render('Tahap3/Panel', ['area' => 'Panel Admin']))
-    ->middleware(['auth', 'role:admin'])
-    ->name('admin.users');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Tahap 8: Panel Admin (read-only + ekspor)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/users', [AdminUserController::class, 'index'])->name('users');
+        Route::get('/users/{user}/posts', [AdminUserController::class, 'posts'])->name('users.posts');
+        Route::get('/users/{user}/posts/export', [AdminUserController::class, 'export'])->name('users.posts.export');
+
+        Route::get('/posts', [AdminPostController::class, 'index'])->name('posts');
+        Route::get('/posts/export', [AdminPostController::class, 'export'])->name('posts.export');
+    });

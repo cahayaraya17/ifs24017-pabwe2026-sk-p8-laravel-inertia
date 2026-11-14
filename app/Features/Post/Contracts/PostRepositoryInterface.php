@@ -15,6 +15,9 @@ interface PostRepositoryInterface
 
     public function forUser(User $user): Collection;
 
+    /** Semua artikel sistem beserta penulisnya (untuk admin). */
+    public function all(): Collection;
+
     /** @return array{total: int, done: int, open: int} */
     public function statsFor(User $user): array;
 

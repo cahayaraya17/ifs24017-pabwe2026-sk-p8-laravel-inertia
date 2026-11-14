@@ -43,7 +43,7 @@ export default function AppLayout({ title, actions, children }) {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-2 text-sm">
+                        <Link href="/profile" title="Edit profil" className="flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 text-sm hover:bg-slate-100">
                             {user?.profile_photo_path ? (
                                 <img
                                     src={`/storage/${user.profile_photo_path}`}
@@ -59,7 +59,7 @@ export default function AppLayout({ title, actions, children }) {
                                 <div className="font-semibold leading-tight text-slate-800">{user?.name}</div>
                                 <div className="text-xs capitalize text-slate-500">{user?.role}</div>
                             </div>
-                        </div>
+                        </Link>
 
                         <button
                             type="button"

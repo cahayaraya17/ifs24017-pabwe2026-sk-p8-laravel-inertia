@@ -47,6 +47,11 @@ class PostRepository implements PostRepositoryInterface
         return Post::query()->where('user_id', $user->id)->orderByDesc('id')->get();
     }
 
+    public function all(): Collection
+    {
+        return Post::query()->with('user:id,name,username')->orderByDesc('id')->get();
+    }
+
     public function statsFor(User $user): array
     {
         $total = Post::query()->where('user_id', $user->id)->count();
