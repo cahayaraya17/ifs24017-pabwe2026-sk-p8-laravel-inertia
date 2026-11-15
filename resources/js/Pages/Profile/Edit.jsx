@@ -48,7 +48,7 @@ export default function Edit({ profile }) {
                 </div>
 
                 <div>
-                    <label className="mb-1 block text-sm font-medium">Nama</label>
+                    <label htmlFor="profile-name" className="mb-1 block text-sm font-medium">Nama</label>
                     <input
                         id="profile-name"
                         type="text"
@@ -60,7 +60,7 @@ export default function Edit({ profile }) {
                 </div>
 
                 <div>
-                    <label className="mb-1 block text-sm font-medium">Email</label>
+                    <label htmlFor="profile-email" className="mb-1 block text-sm font-medium">Email</label>
                     <input
                         id="profile-email"
                         type="email"
@@ -72,8 +72,9 @@ export default function Edit({ profile }) {
                 </div>
 
                 <div>
-                    <label className="mb-1 block text-sm font-medium">Foto profil (maks. 2 MB)</label>
+                    <label htmlFor="profile-photo" className="mb-1 block text-sm font-medium">Foto profil (maks. 2 MB)</label>
                     <input
+                        id="profile-photo"
                         type="file"
                         accept="image/*"
                         className="block w-full text-sm"
@@ -84,8 +85,9 @@ export default function Edit({ profile }) {
 
                 <div className="grid gap-4 md:grid-cols-2">
                     <div>
-                        <label className="mb-1 block text-sm font-medium">Password baru (opsional)</label>
+                        <label htmlFor="profile-password" className="mb-1 block text-sm font-medium">Password baru (opsional)</label>
                         <input
+                            id="profile-password"
                             type="password"
                             className={field}
                             value={data.password}
@@ -94,8 +96,9 @@ export default function Edit({ profile }) {
                         {err('password')}
                     </div>
                     <div>
-                        <label className="mb-1 block text-sm font-medium">Ulangi password baru</label>
+                        <label htmlFor="profile-password-confirmation" className="mb-1 block text-sm font-medium">Ulangi password baru</label>
                         <input
+                            id="profile-password-confirmation"
                             type="password"
                             className={field}
                             value={data.password_confirmation}

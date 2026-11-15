@@ -13,7 +13,7 @@ export default function PostShow({ post }) {
         <PublicLayout>
             <Head title={post.title} />
             <article className="mx-auto max-w-3xl">
-                <Link href="/articles" className="text-sm text-indigo-600 hover:underline">
+                <Link href="/articles" className="text-sm text-indigo-700 underline hover:text-indigo-800">
                     &larr; Semua artikel
                 </Link>
                 <span className="ml-3 rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700">

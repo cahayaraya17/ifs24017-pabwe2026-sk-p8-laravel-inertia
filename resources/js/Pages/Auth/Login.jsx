@@ -67,11 +67,11 @@ export default function Login() {
                 </form>
                 <p className="mt-4 text-sm text-slate-500">
                     Belum punya akun?{' '}
-                    <Link href="/register" className="text-indigo-600 hover:underline">
+                    <Link href="/register" className="text-indigo-700 underline hover:text-indigo-800">
                         Daftar sebagai penulis
                     </Link>
                 </p>
-                <p className="mt-2 text-xs text-slate-400">Akun uji: admin / admin atau member / member</p>
+                <p className="mt-2 text-xs text-slate-600">Akun uji: admin / admin atau member / member</p>
             </div>
         </PublicLayout>
     );

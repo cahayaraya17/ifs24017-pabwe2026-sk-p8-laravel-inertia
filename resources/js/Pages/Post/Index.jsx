@@ -56,7 +56,7 @@ export default function Index({ posts, stats, categories }) {
                     <button
                         type="button"
                         onClick={() => setShowImport(true)}
-                        className="cursor-pointer rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700"
+                        className="cursor-pointer rounded-lg bg-emerald-700 px-3.5 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-800"
                     >
                         Impor Excel
                     </button>
@@ -83,17 +83,17 @@ export default function Index({ posts, stats, categories }) {
                 <div className="rounded-xl border bg-white p-5 shadow-sm">
                     <div className="text-sm font-medium text-slate-500">Total Artikel</div>
                     <div className="mt-2 text-3xl font-extrabold text-slate-900">{stats.total}</div>
-                    <div className="mt-1 text-xs text-slate-400">Seluruh tulisan yang Anda miliki</div>
+                    <div className="mt-1 text-xs text-slate-600">Seluruh tulisan yang Anda miliki</div>
                 </div>
                 <div className="rounded-xl border border-emerald-100 bg-white p-5 shadow-sm">
                     <div className="text-sm font-medium text-emerald-700">Total Selesai (Terbit)</div>
                     <div className="mt-2 text-3xl font-extrabold text-emerald-600">{stats.done}</div>
-                    <div className="mt-1 text-xs text-slate-400">Tampil di halaman blog publik</div>
+                    <div className="mt-1 text-xs text-slate-600">Tampil di halaman blog publik</div>
                 </div>
                 <div className="rounded-xl border border-amber-100 bg-white p-5 shadow-sm">
                     <div className="text-sm font-medium text-amber-700">Belum Selesai (Draf)</div>
                     <div className="mt-2 text-3xl font-extrabold text-amber-600">{stats.open}</div>
-                    <div className="mt-1 text-xs text-slate-400">Masih tersimpan sebagai draf</div>
+                    <div className="mt-1 text-xs text-slate-600">Masih tersimpan sebagai draf</div>
                 </div>
             </div>
 

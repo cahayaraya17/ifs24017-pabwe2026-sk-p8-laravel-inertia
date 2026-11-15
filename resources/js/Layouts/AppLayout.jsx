@@ -21,7 +21,7 @@ export default function AppLayout({ title, actions, children }) {
                         <Link href="/" className="text-xl font-extrabold tracking-tight text-indigo-700">
                             BlogVerse<span className="text-slate-900"> Pro</span>
                         </Link>
-                        <nav className="hidden items-center gap-1 md:flex">
+                        <nav aria-label="Navigasi dashboard" className="hidden items-center gap-1 md:flex">
                             <Link
                                 href="/dashboard/posts"
                                 className={navClass(currentUrl.startsWith('/dashboard/posts'))}

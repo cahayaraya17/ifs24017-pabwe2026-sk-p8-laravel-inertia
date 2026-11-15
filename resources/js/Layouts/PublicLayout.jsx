@@ -18,7 +18,7 @@ export default function PublicLayout({ children }) {
                     <Link href="/" className="text-xl font-extrabold tracking-tight text-indigo-700">
                         BlogVerse<span className="text-slate-900"> Pro</span>
                     </Link>
-                    <nav className="flex items-center gap-2">
+                    <nav aria-label="Navigasi utama" className="flex items-center gap-2">
                         <Link href="/articles" className={`${link} hover:bg-slate-100`}>
                             Artikel
                         </Link>
@@ -64,7 +64,7 @@ export default function PublicLayout({ children }) {
             <footer className="border-t bg-slate-50">
                 <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-slate-500 md:flex-row">
                     <span>&copy; BlogVerse Pro. Ruang menulis untuk semua.</span>
-                    <nav className="flex gap-4">
+                    <nav aria-label="Navigasi footer" className="flex gap-4">
                         <Link href="/" className="hover:text-indigo-600">Beranda Publik</Link>
                         <Link href="/login" className="hover:text-indigo-600">Halaman Login</Link>
                         <Link href="/register" className="hover:text-indigo-600">Halaman Register</Link>

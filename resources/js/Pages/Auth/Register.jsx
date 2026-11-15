@@ -57,7 +57,7 @@ export default function Register() {
                 </form>
                 <p className="mt-4 text-sm text-slate-500">
                     Sudah punya akun?{' '}
-                    <Link href="/login" className="text-indigo-600 hover:underline">
+                    <Link href="/login" className="text-indigo-700 underline hover:text-indigo-800">
                         Masuk
                     </Link>
                 </p>

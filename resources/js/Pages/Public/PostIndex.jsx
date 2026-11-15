@@ -30,6 +30,8 @@ export default function PostIndex({ posts, filters, categories, hero }) {
         <PublicLayout>
             <Head title={hero ? 'Beranda' : 'Artikel'} />
 
+            {!hero && <h1 className="mb-4 text-3xl font-extrabold text-slate-900">Semua Artikel</h1>}
+
             {hero && (
                 <section className="mb-10 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-700 px-6 py-12 text-center text-white">
                     <h1 className="text-3xl font-extrabold md:text-5xl">BlogVerse Pro</h1>
@@ -59,6 +61,7 @@ export default function PostIndex({ posts, filters, categories, hero }) {
             <form onSubmit={search} className="mb-4 flex gap-2">
                 <input
                     type="search"
+                    aria-label="Cari artikel"
                     placeholder="Cari judul atau isi artikel..."
                     value={q}
                     onChange={(e) => setQ(e.target.value)}
@@ -131,7 +134,7 @@ export default function PostIndex({ posts, filters, categories, hero }) {
             )}
 
             {posts.last_page > 1 && (
-                <nav className="mt-8 flex flex-wrap justify-center gap-1">
+                <nav aria-label="Paginasi artikel" className="mt-8 flex flex-wrap justify-center gap-1">
                     {posts.links.map((l, i) =>
                         l.url ? (
                             <Link

@@ -182,7 +182,7 @@ export default function Show({ post }) {
                         {post.is_published && (
                             <Link
                                 href={`/articles/${post.slug}`}
-                                className="ml-auto text-xs font-medium text-indigo-600 hover:underline"
+                                className="ml-auto text-xs font-medium text-indigo-700 underline hover:text-indigo-800"
                             >
                                 Buka di Halaman Publik &rarr;
                             </Link>
